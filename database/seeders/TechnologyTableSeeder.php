@@ -26,9 +26,7 @@ class TechnologyTableSeeder extends Seeder
         // $roles = Role :: factory() -> count(10) -> create();
 
         // foreach ($roles as $role) {
-
         //     $users = User :: inRandomOrder() -> limit(rand(1, 5)) -> get();
-
         //     $role -> users() -> attach($users);
     }
 }
