@@ -17,7 +17,7 @@
             <div class="d-flex flex-wrap">
                 @foreach ($projects as $project)
                     <div class="card m-2">
-                        <a href="{{ route('dashboard', $project->id) }}">{{ $project['name'] }}</a>
+                        <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
                         <br>click o loggati per vedere i dettagli
                     </div>
                 @endforeach

@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        {{ Auth::user()->name }} sta guardando
+                        {{-- {{ Auth::user()->name }} sta guardando --}}
                     </div>
 
                     <div class="card-body">
@@ -30,6 +30,23 @@
                         <div>
                             <div>
                                 <h2>{{ $project['name'] }}</h2>
+                                <div>
+                                    Linguaggio utilizzato: {{ $project->type->language }}
+
+                                    Tecnologia/e utilizzata:
+                                    <ul>
+                                        @foreach ($project->technologies as $technology)
+                                            <li>
+                                                <a
+                                                    href="{{ route('technology-show', $technology->id) }}">{{ $technology->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+
+                                </div>
+
+
                                 @if ($project['completed'])
                                     <div class="badge text-bg-success">
                                         completato
@@ -49,9 +66,7 @@
                                     <h3>questo progetto di occupa di:</h3>
                                     <p>{{ $project->decription }}</p>
                                 </div>
-                                <div>
-                                    tipologia: {{ $project->type->language }}
-                                </div>
+
                             </div>
 
                             <br>

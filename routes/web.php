@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\MainController as MainController;
+use App\Http\Controllers\TechnologyController as TechnologyController;
 Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/technology-show/{id}', [TechnologyController::class, 'show'])->name('technology-show');
 
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 
