@@ -47,14 +47,17 @@
 
                                 <div class="card-body">
                                     <h3>questo progetto di occupa di:</h3>
-                                    <p>{{ $project['decription'] }}</p>
+                                    <p>{{ $project->decription }}</p>
                                 </div>
-
+                                <div>
+                                    tipologia: {{ $project->type->language }}
+                                </div>
                             </div>
 
                             <br>
                             <br>
                             publicato in data *americana* {{ $project['publish_date'] }}
+
 
 
                         </div>
