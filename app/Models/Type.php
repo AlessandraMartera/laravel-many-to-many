@@ -13,8 +13,8 @@ class Type extends Model
         'language'
     ];
 
-    public function Progect(){
+    public function Progects(){
 
-        return $this->belongsTo(Progect::class);
+        return $this->hasMany(Progect::class);
     }
 }
