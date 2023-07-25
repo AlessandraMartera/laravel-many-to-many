@@ -20,6 +20,20 @@ return new class extends Migration
                 ->references('id')
                 ->on('types');
         });
+
+        Schema::table('project_technology', function (Blueprint $table) {
+            $table->unsignedBigInteger('project_id');
+
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects');
+
+                $table->unsignedBigInteger('technology_id');
+
+                $table->foreign('technology_id')
+                    ->references('id')
+                    ->on('technologies');
+        });
     }
 
     /**
@@ -34,5 +48,15 @@ return new class extends Migration
             $table->dropForeign('projects_type_id_foreign');
             $table->dropColumn('type_id');
         });
+
+        Schema::table('project_technology', function (Blueprint $table) {
+            // $table->dropForeign('project_technology_project_id_foreign');
+            // $table->dropForeign('project_technology_tecnology_id_foreign');
+
+            // $table->dropColumn('project_id');
+
+            // $table->dropColumn('technology_id');
+        });
     }
 };
+
