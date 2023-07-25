@@ -57,9 +57,6 @@
                             <br>
                             <br>
                             publicato in data *americana* {{ $project['publish_date'] }}
-
-
-
                         </div>
 
                     </div>

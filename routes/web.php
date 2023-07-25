@@ -18,7 +18,7 @@ Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 
-// Route::get('/dashboard/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/show/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
