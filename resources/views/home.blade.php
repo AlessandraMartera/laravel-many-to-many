@@ -14,14 +14,33 @@
         </p>
 
         <div>
-            <div class="d-flex flex-wrap">
-                @foreach ($projects as $project)
-                    <div class="card m-2">
+
+
+            <p>
+                clicca sul nome del progetto per vederne in dettagli
+            </p>
+
+            <p>
+                <a href="">
+                    clicca qui per aggiungere un nuovo progetto
+                </a>
+            </p>
+
+            @foreach ($projects as $project)
+                <div class="card m-2 p-3">
+                    <h2>
                         <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
-                        <br>click o loggati per vedere i dettagli
+                    </h2>
+                    <br>
+                    <div>
+
+                        {{ $project->decription }}
+
                     </div>
-                @endforeach
-            </div>
+
+                </div>
+            @endforeach
+
         </div>
 
 
