@@ -31,6 +31,19 @@
             <br>
             <br>
 
+            <div>
+                <h6>tecnologie utilizzate: </h6>
+                @foreach ($technologies as $technology)
+                    <input type="checkbox" name="technology_id[]" value={{ $technology->id }}>
+                    <label for="technology_id">{{ $technology->name }}</label>
+                    <br>
+                @endforeach
+            </div>
+
+
+            <br>
+            <br>
+
             <span>completato: </span>
             <label for="completed-true">completed</label>
             <input type="radio" name="completed" id="completed-true" value="1">

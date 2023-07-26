@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 
 class MainController extends Controller
 {
@@ -21,20 +22,15 @@ class MainController extends Controller
 
     public function create(){
         $types = Type::all();
-        return view("create-project", compact('types'));
+        $technologies = Technology::all();
+        return view("create-project", compact('types','technologies'));
     }
 
     public function store(Request $request){
         $data = $request->all();
         // dd($data);
-        $project = Project::create([
-            "name"=>$data["name"],
-            "agency"=>$data["agency"],
-            "decription"=>$data["decription"],
-            "publish_date"=>$data["publish_date"],
-            "completed"=>$data["completed"],
-            "type_id"=>$data["type_id"]
-        ]);
+        $project = Project::create($data);
+        $project-> technologies()->attach($data['technology_id']);
         return redirect()->route("show", $project->id);
     }
 }
