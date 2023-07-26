@@ -21,21 +21,16 @@ class ProjectTableSeeder extends Seeder
         $projects = Project::factory()->count(10)->make();
 
         foreach($projects as $project){
+            // creo la variabe type e le associo un elemento random
             $type = Type::inRandomOrder()->first();
+
+            // prendo la variabile project ( singolo elemento dell'array projects)
+            // mi metto nella colonna type id e le le associo l'id del type preso randomicamente sopra
             $project->type_id = $type->id;
+
+            // salvo
             $project->save();
         }
-
-        // foreach ($posts as $post) {
-
-        //     $user = User :: inRandomOrder() -> first();
-
-        //     $post -> user_id = $user -> id;
-        //     $post -> save();
-        // }
-
-
-
 
     }
 }

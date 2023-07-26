@@ -28,11 +28,11 @@ return new class extends Migration
                 ->references('id')
                 ->on('projects');
 
-                $table->unsignedBigInteger('technology_id');
+            $table->unsignedBigInteger('technology_id');
 
-                $table->foreign('technology_id')
-                    ->references('id')
-                    ->on('technologies');
+            $table->foreign('technology_id')
+                ->references('id')
+                ->on('technologies');
         });
     }
 
@@ -50,12 +50,12 @@ return new class extends Migration
         });
 
         Schema::table('project_technology', function (Blueprint $table) {
+            // distruggo le foreing keys
             $table->dropForeign('project_technology_project_id_foreign');
-
             $table->dropForeign('project_technology_technology_id_foreign');
 
+            // distruggo le colonne
             $table->dropColumn('project_id');
-
             $table->dropColumn('technology_id');
         });
     }

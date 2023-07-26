@@ -20,12 +20,14 @@ Route::get('/technology-show/{id}', [TechnologyController::class, 'show'])->name
 
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
 
-// Route::get('/show/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('show');
+Route::get('/create-project', [MainController::class, 'create'])->name('create-project');
+Route::post('/store-projects', [MainController::class, 'store'])->name('store-projects');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::get('/show/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('show');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';

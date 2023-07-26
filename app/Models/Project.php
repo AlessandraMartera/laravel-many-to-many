@@ -14,7 +14,8 @@ class Project extends Model
         "agency",
         "decription",
         "publish_date",
-        "completed"
+        "completed",
+        "type_id"
         ];
 
     public function type(){

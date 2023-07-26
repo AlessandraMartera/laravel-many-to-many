@@ -19,17 +19,20 @@
                             </div>
                         @endif
 
-                        <h1>
-                            questo è il mio progetto:
-                        </h1>
                         <div class="badge text-bg-info">
                             <a href="{{ route('home') }}">torna alla home</a>
                         </div>
 
 
+
                         <div>
                             <div>
                                 <h2>{{ $project['name'] }}</h2>
+                                <div>
+                                    <a href="badge text-bg-primary">
+                                        modifica i dettagli del progetto
+                                        {{ $project['name'] }}</a>
+                                </div>
                                 <div>
                                     Linguaggio utilizzato: {{ $project->type->language }}
 
@@ -42,8 +45,6 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-
                                 </div>
 
 
@@ -57,9 +58,11 @@
                                     </div>
                                 @endif
                             </div>
+
                             <div class="card">
                                 <div class="card-header">
-                                    proettato per: <h4>{{ $project['agency'] }}</h4>
+                                    proettato per:
+                                    <h4>{{ $project['agency'] }}</h4>
                                 </div>
 
                                 <div class="card-body">

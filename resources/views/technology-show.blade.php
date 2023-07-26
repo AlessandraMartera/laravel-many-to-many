@@ -30,9 +30,6 @@
                         <p>
                             {{ $technology->description }}
                         </p>
-
-
-
                     </div>
                 </div>
             </div>
