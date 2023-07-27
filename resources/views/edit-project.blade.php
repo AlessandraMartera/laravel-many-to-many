@@ -22,19 +22,26 @@
         <br>
         <br>
 
+        {{-- SELECTED TYPE --}}
         <label for="type_id">linguaggio utilizzato</label>
         <select name="type_id" id="type_id">
             @foreach ($types as $type)
-                <option value="{{ $type->id }}"> {{ $type->language }}</option>
+                <option value="{{ $type->id }}" @selected($type->id === $project->type_id)> {{ $type->language }}</option>
             @endforeach
         </select>
+
         <br>
         <br>
 
+        {{-- TECHNOLOGY CHECKBOX --}}
         <div>
             <h6>tecnologie utilizzate: </h6>
             @foreach ($technologies as $technology)
-                <input type="checkbox" name="technology_id[]" value={{ $technology->id }}>
+                <input type="checkbox" name="technology_id[]" value={{ $technology->id }}
+                    @foreach ($project->technologies as $tecproject)
+                        @if ($tecproject->id === $technology->id)
+                            checked
+                        @endif @endforeach>
                 <label for="technology_id">{{ $technology->name }}</label>
                 <br>
             @endforeach
