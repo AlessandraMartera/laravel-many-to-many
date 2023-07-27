@@ -38,6 +38,7 @@
                     <label for="technology_id">{{ $technology->name }}</label>
                     <br>
                 @endforeach
+
             </div>
 
 

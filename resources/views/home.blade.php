@@ -21,15 +21,27 @@
 
             @foreach ($projects as $project)
                 <div class="card m-2 p-3">
-                    <h2>
-                        <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
-                    </h2>
-                    <br>
                     <div>
+                        <h2>
+                            <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
+                        </h2>
+                        <br>
+                        <div>
 
-                        {{ $project->decription }}
+                            {{ $project->decription }}
+
+                        </div>
+                    </div>
+                    <div>
+                        <form method="post" action="{{ route('delete-project', $project->id) }}">
+                            @csrf
+                            @method('DELETE')
+
+                            <input type="submit" value="X">
+                        </form>
 
                     </div>
+
 
                 </div>
             @endforeach

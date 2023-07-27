@@ -30,7 +30,23 @@ class MainController extends Controller
         $data = $request->all();
         // dd($data);
         $project = Project::create($data);
+
         $project-> technologies()->attach($data['technology_id']);
+        // $project-> technologies()->attach($data['technology_id']);
         return redirect()->route("show", $project->id);
     }
+
+    public function delete(Request $request, $id){
+        $project = Project::findOrFail($id);
+        // $project->delete();s
+
+        // ""Stacco"" la chiave esterna della tecnologia dal project
+        $project -> technologies() -> detach();
+        $project -> delete();
+
+
+        return redirect()->route("home");
+
+    }
+
 }
