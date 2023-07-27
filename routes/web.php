@@ -19,9 +19,13 @@ Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/technology-show/{id}', [TechnologyController::class, 'show'])->name('technology-show');
 
 Route::get('/show/{id}', [MainController::class, 'show'])->name('show');
+
 Route::delete('/delete-project/{id}', [MainController::class, 'delete'])->name('delete-project');
+
 Route::get('/create-project', [MainController::class, 'create'])->name('create-project');
 Route::post('/store-projects', [MainController::class, 'store'])->name('store-projects');
+
+Route::get('/edit-project/{id}', [MainController::class, 'edit'])->name('edit-project');
 
 
 // Route::get('/show/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('show');

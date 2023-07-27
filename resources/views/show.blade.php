@@ -29,7 +29,7 @@
                             <div>
                                 <h2>{{ $project['name'] }}</h2>
                                 <div>
-                                    <a href="badge text-bg-primary">
+                                    <a href="{{ route('edit-project', $project->id) }}">
                                         modifica i dettagli del progetto
                                         {{ $project['name'] }}</a>
                                 </div>
@@ -75,6 +75,8 @@
                             <br>
                             <br>
                             publicato in data *americana* {{ $project['publish_date'] }}
+
+                            <a href="{{ route('edit-project', $project->id) }}"></a>
                         </div>
 
                     </div>

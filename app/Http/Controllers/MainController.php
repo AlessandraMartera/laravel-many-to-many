@@ -36,6 +36,13 @@ class MainController extends Controller
         return redirect()->route("show", $project->id);
     }
 
+    public function edit($id){
+        $project= Project::findOrFail($id);
+        $types = Type::all();
+        $technologies = Technology::all();
+        return view("edit-project", compact('project','types','technologies'));
+    }
+
     public function delete(Request $request, $id){
         $project = Project::findOrFail($id);
         // $project->delete();s
