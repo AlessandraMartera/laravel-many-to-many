@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\MainController as MainController;
 use App\Http\Controllers\TechnologyController as TechnologyController;
+
+
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/technology-show/{id}', [TechnologyController::class, 'show'])->name('technology-show');
 
@@ -26,7 +28,7 @@ Route::get('/create-project', [MainController::class, 'create'])->name('create-p
 Route::post('/store-projects', [MainController::class, 'store'])->name('store-projects');
 
 Route::get('/edit-project/{id}', [MainController::class, 'edit'])->name('edit-project');
-
+Route::put('/update-project/{id}', [MainController::class, 'update'])->name('update-project');
 
 // Route::get('/show/{id}',[MainController::class, 'show'])->middleware(['auth', 'verified'])->name('show');
 // Route::middleware('auth')->group(function () {

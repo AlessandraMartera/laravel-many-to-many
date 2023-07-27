@@ -43,14 +43,21 @@ class MainController extends Controller
         return view("edit-project", compact('project','types','technologies'));
     }
 
+    public function update(Request $request, $id){
+        $data=$request->all();
+        $project= Project::findOrFail($id);
+        $project->update($data);
+
+        return redirect()->route("show", $project->id);
+    }
+
     public function delete(Request $request, $id){
         $project = Project::findOrFail($id);
-        // $project->delete();s
+        // $project->delete();
 
         // ""Stacco"" la chiave esterna della tecnologia dal project
         $project -> technologies() -> detach();
         $project -> delete();
-
 
         return redirect()->route("home");
 

@@ -22,14 +22,14 @@
             @foreach ($projects as $project)
                 <div class="card m-2 p-3">
                     <div>
+                        {{-- name project --}}
                         <h2>
                             <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
                         </h2>
                         <br>
+                        {{-- project description --}}
                         <div>
-
                             {{ $project->decription }}
-
                         </div>
                     </div>
                     <div>
@@ -39,9 +39,7 @@
 
                             <input type="submit" value="X">
                         </form>
-
                     </div>
-
 
                 </div>
             @endforeach
