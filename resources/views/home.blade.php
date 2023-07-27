@@ -20,26 +20,35 @@
             </p>
 
             @foreach ($projects as $project)
-                <div class="card m-2 p-3">
-                    <div>
-                        {{-- name project --}}
-                        <h2>
-                            <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
-                        </h2>
-                        <br>
-                        {{-- project description --}}
-                        <div>
-                            {{ $project->decription }}
+                <div class="card m-2 p-3 ">
+
+                    <div class="d-flex">
+                        <div style="width: 97%">
+                            {{-- name project --}}
+                            <h2>
+                                <a href="{{ route('show', $project->id) }}">{{ $project['name'] }}</a>
+                            </h2>
+                            <br>
+                            {{-- project description --}}
+                            <div>
+                                {{ $project->decription }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="justify-self-left">
+                            <form method="post" action="{{ route('delete-project', $project->id) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" value="X">
+                            </form>
                         </div>
                     </div>
-                    <div>
-                        <form method="post" action="{{ route('delete-project', $project->id) }}">
-                            @csrf
-                            @method('DELETE')
 
-                            <input type="submit" value="X">
-                        </form>
-                    </div>
+
+
 
                 </div>
             @endforeach
